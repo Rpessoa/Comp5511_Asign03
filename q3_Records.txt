@@ -1,0 +1,11 @@
+ISBN;Title;Author;Publisher;Address;Price;
+9876543201;Data Structure Total;Bipin C. D.;costco;H1A 2B3;19;
+8876543202;Data Structure Review;Hu;Canadian Tire;H2B 3C4;20;
+7876543203;Data Structure for dummies;John A.;Walmart;H3C 4D5;21;
+6876543204;Data Structure Tutorial;Rodrigo M.;John Coutu;H4D 5E6;22;
+5876543205;Data Structure-Sorting;Aiken Chung;Phamaprix;H5E 6F7;15;
+4876543206;Data Structure-Trees;C.-F. Chung;Uniprix;H6F 7G8;9;
+3876543207;Data Structure-Searching;Siamak K;Metro;H7G 8H9;15;
+2876543208;Data Structure-Graphs;John A.;Provigo;H8K 9Q1;15;
+1876543209;Data Structure-index;Rodrigo M.;Maxi;H9X 1A2;14;
+
