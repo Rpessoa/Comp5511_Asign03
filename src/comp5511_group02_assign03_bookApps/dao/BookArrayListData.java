@@ -24,9 +24,9 @@ public class BookArrayListData implements BookDao{
      */
     public BookArrayListData() {
         try {
-            String path = "C:/Users/aiken/Desktop/";
+            String path = "/Users/John/NetBeansProjects/Comp5511_Asign03/";
             // create recordInput for inputing records
-            File inputFile = new File(path + "q3_Records.txt");
+            File inputFile = new File(path + "ISBN.txt");
             // A connection stream connects to the text file
             FileReader fileReader = new FileReader(inputFile);
             // A file pointer always points to the text file
@@ -37,6 +37,7 @@ public class BookArrayListData implements BookDao{
             while ((recordInput = filePointer.readLine()) != null) {
                 dataArray.add(recordInput);
             }
+            
             // Specify how many rows are there in the text file records
             int arrayListSize = dataArray.size();
 
@@ -62,7 +63,7 @@ public class BookArrayListData implements BookDao{
             }
             // Adding book records of the input file into bookCatalog ArrayList
             for (int i = 1; i < arrayListSize; i++) {
-                addBook(bookInfoArray[i][0], bookInfoArray[i][1],bookInfoArray[i][2],bookInfoArray[i][3],bookInfoArray[i][4],Double.parseDouble(bookInfoArray[i][5]));
+                addBook(bookInfoArray[i][0], bookInfoArray[i][1],bookInfoArray[i][2],bookInfoArray[i][3],bookInfoArray[i][4],bookInfoArray[i][5]);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -105,7 +106,7 @@ public class BookArrayListData implements BookDao{
      * @param price 
      */
     @Override
-    public void addBook(String isbn, String title, String author, String publisher, String address,double price) {
+    public void addBook(String isbn, String title, String author, String publisher, String address,String price) {
         Book book = new Book(isbn, title,author,publisher,address, price);
         if (validate(book)) {
             bookCatalog.add(book);
@@ -124,7 +125,7 @@ public class BookArrayListData implements BookDao{
      * @param price 
      */
     @Override
-    public void updateBook(String isbn, String title, String author, String publisher, String address,double price) {
+    public void updateBook(String isbn, String title, String author, String publisher, String address,String price) {
         //ToAsk: Why I didn't use fetchProduct Method
         Book book = getBook(isbn);
         if (book != null) {
@@ -189,7 +190,8 @@ public class BookArrayListData implements BookDao{
     private boolean validate(Book book) {
         if (book.getTitle().length() > MAX_LENGTH_FOR_BOOK_TITLE
                 || book.getIsbn().length() > MAX_LENGTH_FOR_BOOK_ISBN
-                || book.getPrice() < 0) {
+               // || book.getPrice() < 0
+                ) {
             return false;
         }
         if (bookCatalog.contains(book)) {
