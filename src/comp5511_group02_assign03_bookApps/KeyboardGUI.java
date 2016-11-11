@@ -14,11 +14,14 @@ public class KeyboardGUI {
      
     public void GUI(){
         Scanner Type = new Scanner(System.in);
+        String Function = "";        
+        
+        while(!Function.equals("e")) {
+        
         System.out.println("Please type first letter of your desired function ");
-        System.out.println("'a' for adding, 'd' for deleting, 'u' for update, 's' for searching");
-        String Function = Type.nextLine();
-        //while (Function.equals("a"))
-               
+        System.out.println("'a' for adding, 'd' for deleting, 'u' for update, 's' for searching, 'e' for exit");
+        Function = Type.nextLine();
+                        
         if(Function.equals("a")){
         System.out.println("Okay let's add a record! ");
         System.out.println("What would you like to add?");
@@ -40,6 +43,7 @@ public class KeyboardGUI {
         else if(Function.equals("d")){
         System.out.println("Okay let's delete a record! ");
         System.out.println("What would you like to delete?");
+        // System.out.println("May I recommend ISBN: "+ );
         System.out.println("Please Type ISBN");
         String ISBN = Type.nextLine();
         //What if the value is not in the book?
@@ -65,6 +69,11 @@ public class KeyboardGUI {
         String PRICE = Type.nextLine();
         bookDao.updateBook(ISBN, TITLE,AUTHOR,PUBLISHER,ADDRESS, PRICE);
         System.out.println(bookDao.listBooks());
+        }
+        
+        else if(Function.equals("e")) {
+            System.out.println("Program Terminated");
+            break;
         }
          
         else if(Function.equals("s")){
@@ -108,7 +117,9 @@ public class KeyboardGUI {
          
         else
         { System.out.println("You have not entered a valid letter!");
-          System.out.println("Program Terminated");}
+
+        }
           
          }
+    }
 }
